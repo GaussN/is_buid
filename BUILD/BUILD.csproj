@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{FCBB643B-2FA3-42B6-BE39-1C080C323D67}</ProjectGuid>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace>BUILD</RootNamespace>
+        <AssemblyName>BUILD</AssemblyName>
+        <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <Deterministic>true</Deterministic>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Deployment" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Windows.Forms" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="forms\AdminForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="forms\AdminForm.Designer.cs">
+          <DependentUpon>AdminForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="forms\RegisterForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="forms\RegisterForm.Designer.cs">
+          <DependentUpon>RegisterForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="forms\StartForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="forms\StartForm.Designer.cs">
+          <DependentUpon>StartForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\Brigade\BChangeForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\Brigade\BChangeForm.Designer.cs">
+          <DependentUpon>BChangeForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\Brigade\BInsertForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\Brigade\BInsertForm.Designer.cs">
+          <DependentUpon>BInsertForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\Brigade\Brigade.cs" />
+        <Compile Include="modules\Objects\Iasd.cs" />
+        <Compile Include="modules\Objects\Object\Object.cs" />
+        <Compile Include="modules\Objects\User\UChangeForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\User\UChangeForm.Designer.cs">
+          <DependentUpon>UChangeForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\User\User.cs" />
+        <Compile Include="modules\Objects\Worker\WChangeForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\Worker\WChangeForm.Designer.cs">
+          <DependentUpon>WChangeForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\Worker\WInsertForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\Worker\WInsertForm.Designer.cs">
+          <DependentUpon>WInsertForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\Worker\Worker.cs" />
+        <Compile Include="modules\Services\AutorizationService.cs" />
+        <Compile Include="modules\Services\ColorService.cs" />
+        <Compile Include="modules\Services\ColorSettings.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Services\ColorSettings.Designer.cs">
+          <DependentUpon>ColorSettings.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Services\RegistrationService.cs" />
+        <Compile Include="modules\Services\TableService.cs" />
+        <Compile Include="modules\шлак\DB.cs" />
+        <Compile Include="modules\шлак\ForMoney.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\шлак\ForMoney.Designer.cs">
+          <DependentUpon>ForMoney.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\шлак\User.cs" />
+        <Compile Include="Program.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <EmbeddedResource Include="forms\AdminForm.resx">
+          <DependentUpon>AdminForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="forms\RegisterForm.resx">
+          <DependentUpon>RegisterForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="forms\StartForm.resx">
+          <DependentUpon>StartForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\Brigade\BChangeForm.resx">
+          <DependentUpon>BChangeForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\Brigade\BInsertForm.resx">
+          <DependentUpon>BInsertForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\User\UChangeForm.resx">
+          <DependentUpon>UChangeForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\Worker\WChangeForm.resx">
+          <DependentUpon>WChangeForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\Worker\WInsertForm.resx">
+          <DependentUpon>WInsertForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Services\ColorSettings.resx">
+          <DependentUpon>ColorSettings.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\шлак\ForMoney.resx">
+          <DependentUpon>ForMoney.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+            <SubType>Designer</SubType>
+        </EmbeddedResource>
+        <Compile Include="Properties\Resources.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <None Include="Properties\Settings.settings">
+            <Generator>SettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
+        <Compile Include="Properties\Settings.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="App.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Resources\horMan.jpg" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
