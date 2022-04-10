@@ -26,7 +26,7 @@ namespace BUILD.modules.objects
         private string buildRequest(Brigade brigade)
         {
             return
-                $"INSERT INTO brigadiers(brigadier_name, brigadier_surname) VALUES(\'{brigade.Name}\', \'{brigade.Surname}\');\nINSERT INTO brigades(brigadier_id) VALUES()";
+                $"INSERT INTO brigadiers(brigadier_name, brigadier_surname) VALUES(\'{brigade.Name}\', \'{brigade.Surname}\');\nINSERT INTO brigades(brigadier_id) VALUES((select max(brigadier_id) FROM brigadiers))";
         }
 
         private void UpdateEntry(Brigade brigade)
