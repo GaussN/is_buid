@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace BUILD.modules.objects
@@ -21,6 +22,8 @@ namespace BUILD.modules.objects
                 {
                     comboBox1.Items.Add(rider.GetValue(0).ToString());
                 }
+                comboBox1.Items.Add("-");
+                comboBox1.SelectedIndex = 0;
             }
             catch
             {
@@ -28,7 +31,7 @@ namespace BUILD.modules.objects
             }
 
             this.textBox_id.Text = worker.Id.ToString();
-            this.comboBox1.Text = worker.IdBrigade.ToString();
+            //this.comboBox1.Text = (worker.IdBrigade != -1 ?worker.IdBrigade:'-').ToString();
             this.textBox_name.Text = worker.Name;
             this.textBox_surname.Text = worker.Surname;
             this.textBox_speciality.Text = worker.Speciality;
@@ -67,6 +70,8 @@ namespace BUILD.modules.objects
         }
         private string buildRequest(Worker w)
         {
+            if (w.IdBrigade == -1)
+                return $"UPDATE workers SET brigade_id=NULL, worker_name=\'{w.Name}\', worker_surname=\'{w.Surname}\', worker_speciality=\'{w.Speciality}\', worker_lvl={w.Lvl} WHERE worker_id={w.Id}";
             return
                 $"UPDATE workers SET brigade_id={w.IdBrigade}, worker_name=\'{w.Name}\', worker_surname=\'{w.Surname}\', worker_speciality=\'{w.Speciality}\', worker_lvl={w.Lvl} WHERE worker_id={w.Id}";
         }
@@ -87,7 +92,7 @@ namespace BUILD.modules.objects
             Worker w = new Worker
             (
                 int.Parse(textBox_id.Text),
-                int .Parse(this.comboBox1.Text),
+                int .Parse(this.comboBox1.Text != "-" ? this.comboBox1.Text : "-1"),
                 textBox_name.Text.Trim(),
                 textBox_surname.Text.Trim(),
                 textBox_speciality.Text.Trim(),

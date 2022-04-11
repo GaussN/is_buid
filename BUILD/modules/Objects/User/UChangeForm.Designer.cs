@@ -145,7 +145,7 @@ namespace BUILD.modules.objects
             // 
             this.errorProvider2.ContainerControl = this;
             // 
-            // InsertForm
+            // UChangeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,6 +166,7 @@ namespace BUILD.modules.objects
             this.Name = "UChangeForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider2)).EndInit();
             this.ResumeLayout(false);

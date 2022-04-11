@@ -197,6 +197,7 @@ namespace BUILD
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "СТРОЙ! Регистрация";
             this.ResumeLayout(false);
             this.PerformLayout();

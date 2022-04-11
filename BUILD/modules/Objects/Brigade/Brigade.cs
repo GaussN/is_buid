@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using BUILD.modules.Objects;
 
@@ -30,9 +31,17 @@ namespace BUILD.modules.objects
 
         private void executeRequest(string cmd)
         {
-            DB db = new DB();
-            SqlCommand command = new SqlCommand(cmd, db.GetConnection());
-            command.ExecuteReader();
+            try
+            {
+                DB db = new DB();
+                SqlCommand command = new SqlCommand(cmd, db.GetConnection());
+                command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Ошибка в SQL\n{e.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         
         
@@ -48,6 +57,11 @@ namespace BUILD.modules.objects
             _name = row.Cells[2].Value.ToString().Trim();
             _surname = row.Cells[3].Value.ToString().Trim();
             (new BChangeForm(this)).ShowDialog();
+        }
+
+        public void Update(TableService servise, DataGridView grid)
+        {
+            servise.FillBrigadesTable(grid);
         }
 
         public void Delete(DataGridViewRow row)

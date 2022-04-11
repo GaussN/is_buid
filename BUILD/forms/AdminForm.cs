@@ -5,14 +5,13 @@ using BUILD.modules;
 using BUILD.modules.objects;
 using BUILD.modules.Objects;
 using BUILD.Properties;
-//using User = BUILD.modules.User;
 
 namespace BUILD
 {
     public partial class AdminForm : Form
     {
         private Form _form;
-        private BUILD.modules.User _user;
+        private modules.User _user;
         private TableService _tableService;
         private Iasd _nowTable;//активная таблица
         public AdminForm(modules.User user, Form form)
@@ -40,6 +39,7 @@ namespace BUILD
                 this.button_delete.Visible = false;
                 this.пользователиToolStripMenuItem.Visible = false;
                 this.пользователиToolStripMenuItem.Enabled = false;
+                this.Text = $"СТРОЙ! Пользователь";
             }
             else
             {
@@ -146,7 +146,7 @@ namespace BUILD
             this.button_change.Enabled = true;
             this.button_delete.Enabled = true;
             this.button_search.Enabled = true;
-            this._nowTable = new modules.objects.Object();
+            this._nowTable = new modules.objects.Object(-1, "", -1, -1, 0f, "");
             this._tableService.FillObjectsTable(this.dataGridView);
         }
 
@@ -154,32 +154,117 @@ namespace BUILD
         #endregion
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show($"cell[{e.RowIndex},{e.ColumnIndex}]");
+            MessageBox.Show("Хули тыкаешь?");
+            //MessageBox.Show($"cell[{e.RowIndex},{e.ColumnIndex}]");
             //asd
         }
 
         #region [функции кнопок боковой панели]
         private void button_search_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                var searchForm = new SearchForm(this.dataGridView.ColumnCount - 1);
+                if (searchForm.ShowDialog() == DialogResult.OK)
+                {
+                    dataGridView.ClearSelection();
+                    var searchString = searchForm.ReturnValueSearchString.Trim();
+                    var searchColumn = searchForm.ReturnValueSearchColumn - 1;
+                    int костыль = searchColumn == -1 ? dataGridView.ColumnCount : searchColumn;
+                    if (searchColumn == -1)
+                    {
+                        searchColumn = 0;
+                        костыль = dataGridView.ColumnCount;
+                    }
+                    else
+                        костыль = searchColumn + 1;
+
+                    //это пизда, а не поиск
+                    for (int i = 0; i < dataGridView.RowCount; i++)
+                    {
+                        //dataGridView.Rows[i].Selected = false;
+                        for (int j = searchColumn; j < костыль; j++)
+                        {
+                            if (dataGridView.Rows[i].Cells[j].Value != null)
+                            {
+                                if (dataGridView.Rows[i].Cells[j].Value.ToString().Trim().Contains(searchString))
+                                {
+                                    dataGridView.Rows[i].Selected = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception excp)
+            {
+                MessageBox.Show($"Ошибка в функции поиска\n{excp.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_change_Click(object sender, EventArgs e)
         {
-            var row = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex];
-            _nowTable.Change(row);
+            try
+            {
+                var row = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex];
+                _nowTable.Change(row);
+                _nowTable.Update(this._tableService, this.dataGridView);
+            }
+            catch (Exception excp)
+            {
+                MessageBox.Show($"Ошибка в функции редактирования\n{excp.Message}", "Бля, маслину поймал!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            var row = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex];
-            _nowTable.Delete(row);
+            try
+            {
+                var row = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex];
+                _nowTable.Delete(row);
+                _nowTable.Update(this._tableService, this.dataGridView);
+            }
+            catch (Exception excp)
+            {
+                MessageBox.Show($"Ошибка в функции удаления\n{excp.Message}", "Чики брики!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            _nowTable.Insert();
+            try
+            {
+                _nowTable.Insert();
+                _nowTable.Update(this._tableService, this.dataGridView);
+            }
+            catch (Exception excp)
+            {
+                MessageBox.Show($"Ошибка в функции добавления\n{excp.Message}", "АААААААА!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
+
+        private void посмотретьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void txtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void принтерToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void docxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -15,14 +16,20 @@ namespace BUILD.modules
 
         private void fillTable(DataGridView dataGridView, string table, string query = null)
         {
-            
-            string cmd = query == null ? ("SELECT * FROM " + table) : query;
-            DB db = new DB();
-            SqlDataAdapter command = new SqlDataAdapter(cmd, db.GetConnection());
-            DataSet dataSet = new DataSet();
+            try
+            {
+                string cmd = query == null ? ("SELECT * FROM " + table) : query;
+                DB db = new DB();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd, db.GetConnection());
+                DataSet dataSet = new DataSet();
 
-            command.Fill(dataSet, table);
-            dataGridView.DataSource = dataSet.Tables[table];
+                adapter.Fill(dataSet, table);
+                dataGridView.DataSource = dataSet.Tables[table];
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Ошибка в сервисах заполнения таблиц\n{exception.Message}", "Что ты уже сломал?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void FillUserTable(DataGridView dataGridView)

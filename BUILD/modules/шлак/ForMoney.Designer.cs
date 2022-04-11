@@ -213,7 +213,10 @@ namespace BUILD.modules
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ForMoney";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "СТРОЙ! Перевод деньга";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

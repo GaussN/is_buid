@@ -186,6 +186,7 @@ namespace BUILD.modules.objects
             this.MinimizeBox = false;
             this.Name = "WInsertForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown_lvl)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider2)).EndInit();

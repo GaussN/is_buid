@@ -46,6 +46,9 @@ namespace BUILD
             this.отчетОToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.посмотретьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сделатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.docxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.принтерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.таблицыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.объектыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,12 +142,35 @@ namespace BUILD
             this.посмотретьToolStripMenuItem.Name = "посмотретьToolStripMenuItem";
             this.посмотретьToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
             this.посмотретьToolStripMenuItem.Text = "Посмотреть";
+            this.посмотретьToolStripMenuItem.Click += new System.EventHandler(this.посмотретьToolStripMenuItem_Click);
             // 
             // сделатьToolStripMenuItem
             // 
+            this.сделатьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.txtToolStripMenuItem, this.docxToolStripMenuItem, this.принтерToolStripMenuItem});
             this.сделатьToolStripMenuItem.Name = "сделатьToolStripMenuItem";
             this.сделатьToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
             this.сделатьToolStripMenuItem.Text = "Сделать";
+            // 
+            // txtToolStripMenuItem
+            // 
+            this.txtToolStripMenuItem.Name = "txtToolStripMenuItem";
+            this.txtToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.txtToolStripMenuItem.Text = "*.txt";
+            this.txtToolStripMenuItem.Click += new System.EventHandler(this.txtToolStripMenuItem_Click);
+            // 
+            // docxToolStripMenuItem
+            // 
+            this.docxToolStripMenuItem.Name = "docxToolStripMenuItem";
+            this.docxToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.docxToolStripMenuItem.Text = "*.docx";
+            this.docxToolStripMenuItem.Click += new System.EventHandler(this.docxToolStripMenuItem_Click);
+            // 
+            // принтерToolStripMenuItem
+            // 
+            this.принтерToolStripMenuItem.Name = "принтерToolStripMenuItem";
+            this.принтерToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.принтерToolStripMenuItem.Text = "принтер";
+            this.принтерToolStripMenuItem.Click += new System.EventHandler(this.принтерToolStripMenuItem_Click);
             // 
             // таблицыToolStripMenuItem
             // 
@@ -333,6 +359,7 @@ namespace BUILD
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "AdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "СТРОЙ! Администратор";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
@@ -346,6 +373,10 @@ namespace BUILD
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem txtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem docxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem принтерToolStripMenuItem;
 
         private System.Windows.Forms.Label label_message;
 

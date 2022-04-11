@@ -7,5 +7,6 @@ namespace BUILD.modules.Objects
         void Insert();
         void Change(DataGridViewRow row);
         void Delete(DataGridViewRow row);
+        void Update(TableService servise, DataGridView grid);
     }
 }

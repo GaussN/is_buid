@@ -79,6 +79,24 @@
         <Compile Include="modules\Objects\Brigade\Brigade.cs" />
         <Compile Include="modules\Objects\Iasd.cs" />
         <Compile Include="modules\Objects\Object\Object.cs" />
+        <Compile Include="modules\Objects\Object\OChangeForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\Object\OChangeForm.Designer.cs">
+          <DependentUpon>OChangeForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\Object\OInsertForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\Object\OInsertForm.Designer.cs">
+          <DependentUpon>OInsertForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="modules\Objects\SearchForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="modules\Objects\SearchForm.Designer.cs">
+          <DependentUpon>SearchForm.cs</DependentUpon>
+        </Compile>
         <Compile Include="modules\Objects\User\UChangeForm.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -133,6 +151,15 @@
         </EmbeddedResource>
         <EmbeddedResource Include="modules\Objects\Brigade\BInsertForm.resx">
           <DependentUpon>BInsertForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\Object\OChangeForm.resx">
+          <DependentUpon>OChangeForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\Object\OInsertForm.resx">
+          <DependentUpon>OInsertForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="modules\Objects\SearchForm.resx">
+          <DependentUpon>SearchForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="modules\Objects\User\UChangeForm.resx">
           <DependentUpon>UChangeForm.cs</DependentUpon>

@@ -179,11 +179,13 @@ namespace BUILD.modules.objects
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(12, 98);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(317, 33);
+            this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 13;
             // 
             // WChangeForm

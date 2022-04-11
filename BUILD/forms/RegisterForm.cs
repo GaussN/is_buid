@@ -33,37 +33,45 @@ namespace BUILD
 
         private void button_register_Click(object sender, EventArgs e)
         {
-            string name, surname, login, password;
-            if ((name = textBox_name.Text.Trim()) == String.Empty)
+            //да, я знаю про ErrorProvide
+            //но тогда я не знал
+            try
             {
-                label_message.Text = NameFieldEmpty;
-                return;
-            }
-            if ((surname = textBox_surname.Text.Trim()) == String.Empty)
-            {
-                label_message.Text = SurnameFieldEmpty;
-                return;
-            }
-            if ((login = textBox_login.Text.Trim()) == String.Empty)
-            {
-                label_message.Text = LoginFieldEmpty;
-                return;
-            }
-            if ((password = textBox_password_1.Text.Trim()) == String.Empty)
-            {
-                label_message.Text = PasswordFieldEmpty;
-                return;
-            }
+                string name, surname, login, password;
+                if ((name = textBox_name.Text.Trim()) == String.Empty)
+                {
+                    label_message.Text = NameFieldEmpty;
+                    return;
+                }
+                if ((surname = textBox_surname.Text.Trim()) == String.Empty)
+                {
+                    label_message.Text = SurnameFieldEmpty;
+                    return;
+                }
+                if ((login = textBox_login.Text.Trim()) == String.Empty)
+                {
+                    label_message.Text = LoginFieldEmpty;
+                    return;
+                }
+                if ((password = textBox_password_1.Text.Trim()) == String.Empty)
+                {
+                    label_message.Text = PasswordFieldEmpty;
+                    return;
+                }
+                if (password != textBox_password_2.Text.Trim())
+                {
+                    label_message.Text = PasswordDontMatch;
+                    return;
+                }
+                //и вообще эта забота об эпилептиках 
+                User user = new User() { name=name, surname = surname, rights = false};
+                RegistrationService.RegisterUser(user, login, password);
 
-            if (password != textBox_password_2.Text.Trim())
-            {
-                label_message.Text = PasswordDontMatch;
-                return;
             }
-
-            User user = new User() { name=name, surname = surname, rights = false};
-            RegistrationService.RegisterUser(user, login, password);
-            
+            catch (Exception exception)
+            { 
+                MessageBox.Show($"Ошибка регистрации\n{exception.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             //MessageBox.Show($"Зарегестрирован новый пользователь {name} {surname} {login} {password}");
             this.Close();
         }

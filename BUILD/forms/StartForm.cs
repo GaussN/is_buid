@@ -28,30 +28,38 @@ namespace BUILD
 
         private void button_input_Click(object sender, EventArgs e)
         {
-            //получение введенных данных 
-            var login = textBox_login.Text.Trim();
-            var password = textBox_password.Text.Trim();
-            
-            //проверка ввода
-            if (login == "")
-                label_message.Text = LoginFieldEmptyWarning;
-            else if (password == String.Empty)
-                label_message.Text = PasswordFieldEmptyWarning;
-            else
+            try
             {
-
-                //авторизация
-                var user = AutorizationService.UserAutorization(login: login, password: password);
-                if (user.id == -1)
+                //получение введенных данных 
+                var login = textBox_login.Text.Trim();
+                var password = textBox_password.Text.Trim();
+            
+                //проверка ввода
+                //ErrorProvide для слабых
+                if (login == "")
+                    label_message.Text = LoginFieldEmptyWarning;
+                else if (password == String.Empty)
+                    label_message.Text = PasswordFieldEmptyWarning;
+                else
                 {
-                    label_message.Text = WrongLoginOrPasswordWarning;
-                    return;
-                }
 
-                label_message.Text = String.Empty;
+                    //авторизация
+                    var user = AutorizationService.UserAutorization(login: login, password: password);
+                    if (user.id == -1)
+                    {
+                        label_message.Text = WrongLoginOrPasswordWarning;
+                        return;
+                    }
+
+                    label_message.Text = String.Empty;
                 
-                this.Hide();
-                (new AdminForm(user, this)).Show();
+                    this.Hide();
+                    (new AdminForm(user, this)).Show();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Ошибка в авторизации\n{exception.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -46,11 +46,25 @@ namespace BUILD.modules.objects
             Right = right;
         }
 
+        public void Update(TableService service, DataGridView grid)
+        {
+            service.FillUserTable(grid);
+            
+        }
+
         private void executeRequest(string cmd)
         {
-            DB db = new DB();
-            SqlCommand command = new SqlCommand(cmd, db.GetConnection());
-            command.ExecuteReader();
+            try
+            {
+                DB db = new DB();
+                SqlCommand command = new SqlCommand(cmd, db.GetConnection());
+                command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Ошибка в функции поиска\n{e.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         public void Change(DataGridViewRow row)

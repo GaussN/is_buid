@@ -8,7 +8,7 @@ namespace BUILD.modules.objects
     public class Worker : Iasd
     {
         private int _id;
-        private int _id_brigade;
+        private int? _id_brigade;
         private string _name;
         private string _surname;
         private string _speciality;
@@ -18,7 +18,7 @@ namespace BUILD.modules.objects
 
         public int Id => _id;
 
-        public int IdBrigade => _id_brigade;
+        public int? IdBrigade => _id_brigade;
         public string Name => _name;
         public string Surname => _surname;
         public string Speciality => _speciality;
@@ -26,7 +26,7 @@ namespace BUILD.modules.objects
 
          #endregion
 
-         public Worker(int id, int brid, string name, string surname, string speciality, int lvl)
+         public Worker(int id, int? brid, string name, string surname, string speciality, int lvl)
         {
             _lvl = lvl;
             _id = id;
@@ -45,7 +45,7 @@ namespace BUILD.modules.objects
         public void Change(DataGridViewRow row)
         {
             this._id = int.Parse(row.Cells[0].Value.ToString().Trim());
-            this._id_brigade = int.Parse(row.Cells[1].Value.ToString().Trim());
+            this._id_brigade = int.Parse(row.Cells[1].Value.ToString().Trim() == "" ? "-1": row.Cells[1].Value.ToString().Trim());
             this._name = row.Cells[2].Value.ToString().Trim();
             this._surname = row.Cells[3].Value.ToString().Trim();
             this._speciality = row.Cells[4].Value.ToString().Trim();
@@ -61,11 +61,25 @@ namespace BUILD.modules.objects
                 executeRequest($"DELETE FROM workers WHERE worker_id={this._id}");
             }
         }
+
+        public void Update(TableService servise, DataGridView grid)
+        {
+            servise.FillWorkersTable(grid);
+        }
+
         private void executeRequest(string cmd)
         {
-            DB db = new DB();
-            SqlCommand command = new SqlCommand(cmd, db.GetConnection());
-            command.ExecuteReader();
+            try
+            {
+                DB db = new DB();
+                SqlCommand command = new SqlCommand(cmd, db.GetConnection());
+                command.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Ошибка в SQL\n{e.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
     }

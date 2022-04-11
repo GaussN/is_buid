@@ -17,3 +17,6 @@ D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.WChangeForm.resources
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.WInsertForm.resources
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.BChangeForm.resources
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.BInsertForm.resources
+D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.Objects.SearchForm.resources
+D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.OChangeForm.resources
+D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.OInsertForm.resources

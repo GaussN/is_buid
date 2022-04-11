@@ -11,6 +11,7 @@ namespace BUILD.modules
             try
             {
                 //без проверки на сущетвование такого пользоватея
+                
                 DB db = new DB();
                 string addUserData = 
                     $"INSERT INTO users_data(user_name, user_surname, user_rights) values('{user.name}', '{user.surname}', 0);\n";
@@ -21,8 +22,7 @@ namespace BUILD.modules
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
-                Application.Exit();
+                MessageBox.Show("Ошибка регистрации нового пользователя\n" + exception.Message, "Пиу", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
