@@ -20,3 +20,6 @@ D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.BInsertForm.resources
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.Objects.SearchForm.resources
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.OChangeForm.resources
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.objects.OInsertForm.resources
+D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.modules.ReportForm.resources
+D:\Code\LP\C#\BUILD\BUILD\obj\Debug\Interop.Microsoft.Office.Interop.Word.dll
+D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.csproj.ResolveComReference.cache

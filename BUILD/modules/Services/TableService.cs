@@ -41,7 +41,7 @@ namespace BUILD.modules
         {
             string cmd = "select * from workers";
             if (!this._user.rights)
-                cmd += $" where brigade_id=(select brigade_id from objects_data where user_id={this._user.id})";
+                cmd += $" where brigade_id in (select brigade_id from objects_data where user_id={this._user.id})";
             this.fillTable(dataGridView, "workers", cmd);
         }
 
@@ -50,7 +50,7 @@ namespace BUILD.modules
             string cmd =
                 "select brigade_id as id, brigadiers.* from brigades, brigadiers where brigades.brigadier_id=brigadiers.brigadier_id";
             if (!this._user.rights)
-                cmd += $" and brigade_id=(select brigade_id from objects_data where user_id={this._user.id})";
+                cmd += $" and brigade_id in (select brigade_id from objects_data where user_id={this._user.id})";
             this.fillTable(dataGridView, "brigades", cmd);
         }
 

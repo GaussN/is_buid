@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Runtime.Remoting.Channels;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Windows.Forms;
 using BUILD.modules;
-using BUILD.modules.objects;
 using BUILD.modules.Objects;
-using BUILD.Properties;
+using exportWord = Microsoft.Office.Interop.Word;
 
 namespace BUILD
 {
@@ -247,24 +249,138 @@ namespace BUILD
         }
         #endregion
 
+        #region Reports
+
+        private SqlDataReader executeRequest(string req)
+        {
+            try
+            {
+                DB db = new DB();
+                SqlCommand command = new SqlCommand(req, db.GetConnection());
+                return command.ExecuteReader();
+            }
+            catch
+            {
+                MessageBox.Show("Во время выполнения запроса произошла ошика", "парапарапара", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return null;
+        }
+
+        private string MakeAmericaGreateAgain()
+        {
+            string getObjectsCount = $"select count(*) from objects_data where user_id={_user.id}";
+            string getBrigadesCount = $"select count(distinct brigade_id) from objects_data where user_id={_user.id}";
+            string getWorkerCount = $"select count(*) from workers where brigade_id in (select brigade_id from objects_data where user_id={_user.id})";
+            
+            string report = String.Empty;
+
+            int objCount = 0;
+            int brgCount = 0;
+            int wkrCount = 0;
+            
+            var reader = executeRequest(getObjectsCount);
+            if (reader != null)
+            {
+                reader.Read();
+                objCount = int.Parse(reader[0].ToString());
+            }
+            reader = executeRequest(getBrigadesCount);
+            if (reader != null)
+            {
+                reader.Read();
+                brgCount = int.Parse(reader[0].ToString());
+            }
+            reader = executeRequest(getWorkerCount);
+            if (reader != null)
+            {
+                reader.Read();
+                wkrCount = int.Parse(reader[0].ToString());
+            }
+            
+            report += $"{_user.name} {_user.surname}\n";
+            report += $"id в системе {_user.id}\n\n";
+            report += $"Инофрмация о строительных объектах\n";
+            report += $"Общее количество объектов: {objCount}\n";
+            report += $"Общее количество бригад: {brgCount}\n";
+            report += $"Общее количество рабочих: {wkrCount}\n";
+            
+            
+            return report;
+        }
+
         private void посмотретьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            (new ReportForm(MakeAmericaGreateAgain())).ShowDialog();
         }
 
         private void txtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                SaveFileDialog fileDialog = new SaveFileDialog();
+                fileDialog.CreatePrompt = true;
+                fileDialog.Filter = "Текстовые файлы(*.txt)|*.txt";
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = fileDialog.FileName;
+                    using (StreamWriter writer = new StreamWriter(fileName))
+                        writer.Write(MakeAmericaGreateAgain());
+                    }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("При создании отчета возникла ошибка:\n" + exception.Message);
+            }
         }
 
         private void принтерToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                MessageBox.Show("DEBUG PRINT");
+                PrintDocument printDocument = new PrintDocument();
+                printDocument.PrintPage += (send, ex) => {
+                        ex.Graphics.DrawString(MakeAmericaGreateAgain(), new Font("Arial", 14), Brushes.Black, 0, 0);
+                    }
+                    ;
+                PrintDialog printDialog = new PrintDialog();
+                printDialog.Document = printDocument;
+                if (printDialog.ShowDialog() == DialogResult.OK)
+                    printDialog.Document.Print(); 
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void docxToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            
+            try
+            {
+                exportWord.Application wordapp = new exportWord.Application();
+                wordapp.Visible = true;
+                exportWord.Document worddoc;
+                object wordobj = System.Reflection.Missing.Value;
+                worddoc = wordapp.Documents.Add(ref wordobj);
+                wordapp.Selection.TypeText(MakeAmericaGreateAgain());
+                wordapp = null;
+                
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
+
+        #endregion
+
+        private void действияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }

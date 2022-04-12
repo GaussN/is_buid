@@ -85,8 +85,9 @@ namespace BUILD
             // 
             this.действияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.штукатуркаToolStripMenuItem, this.датьДенягToolStripMenuItem, this.сменитьПользователяToolStripMenuItem, this.выйтиToolStripMenuItem});
             this.действияToolStripMenuItem.Name = "действияToolStripMenuItem";
-            this.действияToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
-            this.действияToolStripMenuItem.Text = "Что-то типо настроек";
+            this.действияToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.действияToolStripMenuItem.Text = "Натсройки";
+            this.действияToolStripMenuItem.Click += new System.EventHandler(this.действияToolStripMenuItem_Click);
             // 
             // штукатуркаToolStripMenuItem
             // 
@@ -154,21 +155,21 @@ namespace BUILD
             // txtToolStripMenuItem
             // 
             this.txtToolStripMenuItem.Name = "txtToolStripMenuItem";
-            this.txtToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.txtToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
             this.txtToolStripMenuItem.Text = "*.txt";
             this.txtToolStripMenuItem.Click += new System.EventHandler(this.txtToolStripMenuItem_Click);
             // 
             // docxToolStripMenuItem
             // 
             this.docxToolStripMenuItem.Name = "docxToolStripMenuItem";
-            this.docxToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.docxToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
             this.docxToolStripMenuItem.Text = "*.docx";
             this.docxToolStripMenuItem.Click += new System.EventHandler(this.docxToolStripMenuItem_Click);
             // 
             // принтерToolStripMenuItem
             // 
             this.принтерToolStripMenuItem.Name = "принтерToolStripMenuItem";
-            this.принтерToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.принтерToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
             this.принтерToolStripMenuItem.Text = "принтер";
             this.принтерToolStripMenuItem.Click += new System.EventHandler(this.принтерToolStripMenuItem_Click);
             // 

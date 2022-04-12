@@ -28,7 +28,7 @@ namespace BUILD.modules
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Ошибка в функции поиска\n{exception.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в функции авторизации\n{exception.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return user;
         }
