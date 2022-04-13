@@ -61,7 +61,7 @@ namespace BUILD
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ИС \"СТРОЙ!\" v1.0.0 \nРазработал Лапцевич Н 44тп");
+            MessageBox.Show("ИС \"СТРОЙ!\" v1.0.0 \nРазработал Воробьёв Н 44тп");
         }
 
         #region tooStripMenu 1

@@ -35,12 +35,14 @@ namespace BUILD.modules.objects
             {
                 DB db = new DB();
                 SqlCommand command = new SqlCommand(cmd, db.GetConnection());
-                command.ExecuteReader();
+                //command.ExecuteReader();
+                command.ExecuteScalar();
             }
             catch (Exception e)
             {
                 MessageBox.Show($"Ошибка в SQL\n{e.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show(cmd);
+                //throw;
             }
         }
         
@@ -70,12 +72,29 @@ namespace BUILD.modules.objects
             {
                 _id = int.Parse(row.Cells[0].Value.ToString().Trim());
                 _id_brigadier = int.Parse(row.Cells[1].Value.ToString().Trim());
-                string cmd2 = $"DELETE FROM brigades WHERE brigade_id={this.Id}";
-                string cmd3 = $"DELETE FROM brigadiers WHERE brigadier_id={this.IdBrigadier}";
-                string cmd1 = $"UPDATE workers SET brigade_id=NULL WHERE brigade_id={this.Id}";
-                executeRequest(cmd1);
-                executeRequest(cmd2);
-                executeRequest(cmd3);   
+                string cmd1 = $"UPDATE objects_data SET brigade_id=NULL WHERE brigade_id={this.Id}";
+                string cmd2 = $"UPDATE workers SET brigade_id=NULL WHERE brigade_id={this.Id}";
+                string cmd3 = $"DELETE FROM brigades WHERE brigadier_id={this.IdBrigadier}";
+                string cmd4 = $"DELETE FROM brigadiers WHERE brigadier_id={this.IdBrigadier}";
+
+                //
+                // MessageBox.Show(cmd1);
+                // MessageBox.Show(cmd2);
+                // MessageBox.Show(cmd3);
+                // MessageBox.Show(cmd4);
+
+                try
+                {
+                    executeRequest(cmd1);
+                    executeRequest(cmd2);
+                    executeRequest(cmd3);
+                    executeRequest(cmd4);
+
+                }
+                catch (Exception e)
+                {
+                    //pass
+                }
             }
         }
     }
