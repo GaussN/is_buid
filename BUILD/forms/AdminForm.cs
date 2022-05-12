@@ -13,9 +13,10 @@ namespace BUILD
     public partial class AdminForm : Form
     {
         private Form _form;
-        private modules.User _user;
+        public modules.User _user;
         private TableService _tableService;
         private Iasd _nowTable;//активная таблица
+
         public AdminForm(modules.User user, Form form)
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace BUILD
             this._form = form;
             this._user = user;
             this._tableService = new TableService(this._user);
-            
+
             this.button_add.Enabled = false;
             this.button_change.Enabled = false;
             this.button_delete.Enabled = false;
@@ -388,7 +389,7 @@ namespace BUILD
 
         private void личныйКабинетToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var cab = new Cabinet(this._user);
+            var cab = new Cabinet(this);
             cab.ShowDialog();
         }
     }

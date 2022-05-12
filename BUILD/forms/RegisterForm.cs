@@ -19,16 +19,9 @@ namespace BUILD
 
         private void checkBox_show_password_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox_show_password.Checked)
-            {
-                textBox_password_1.UseSystemPasswordChar = false;
-                textBox_password_2.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                textBox_password_1.UseSystemPasswordChar = true;
-                textBox_password_2.UseSystemPasswordChar = true;
-            }
+            textBox_password_1.UseSystemPasswordChar = !checkBox_show_password.Checked;
+            textBox_password_2.UseSystemPasswordChar = !checkBox_show_password.Checked;
+           
         }
 
         private void button_register_Click(object sender, EventArgs e)
@@ -62,7 +55,6 @@ namespace BUILD
                     label_message.Text = PasswordDontMatch;
                     return;
                 }
-
                 User user = new User() { name=name, surname = surname, rights = false};
                 RegistrationService.RegisterUser(user, login, password);
 
@@ -70,6 +62,7 @@ namespace BUILD
             catch (Exception exception)
             { 
                 MessageBox.Show($"Ошибка регистрации\n{exception.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             MessageBox.Show($"Регистрация прошла успешно");
             this.Close();
