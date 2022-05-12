@@ -55,7 +55,7 @@ namespace BUILD.modules
             this.MinimizeBox = false;
             this.Name = "ReportForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
         }
 

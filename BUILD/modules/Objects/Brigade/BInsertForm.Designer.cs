@@ -112,7 +112,7 @@ namespace BUILD.modules.objects
             this.MinimizeBox = false;
             this.Name = "BInsertForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider2)).EndInit();
             this.ResumeLayout(false);

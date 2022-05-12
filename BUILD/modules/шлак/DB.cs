@@ -11,11 +11,9 @@ namespace BUILD.modules
 
         public DB()
         {
-            //string conn= "Server=localhost\\DESKTOP-BT6E7LB;Database=_BUILD_;Trusted_Connection=True;";
             try
             {
                 string conn = "server=localhost;user=root;database=_BUILD_;port=3306;password=root;";
-                //string conn = "Server=localhost\\SQLEXPRESS;Database=_BUILD_;Trusted_Connection=True;";
                 _connection.ConnectionString = conn;
                 Open();
             }
@@ -26,11 +24,9 @@ namespace BUILD.modules
                 Application.Exit();
             }
         }
-        public MySqlConnection GetConnection()
-        {
-            return _connection;
-        }
-        public void Open()
+        //лямбда 
+        public MySqlConnection GetConnection() =>_connection;
+            public void Open()
         {
             _connection.Open();
         }
@@ -38,9 +34,7 @@ namespace BUILD.modules
         {
             //_connection.Close();
         }
-        ~DB()
-        {
-            Close();   
-        }
+        ~DB()=>Close();   
+        
     }
 }

@@ -85,6 +85,7 @@ namespace BUILD.modules.Objects
             this.MinimizeBox = false;
             this.Name = "SearchForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Поиск";
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

@@ -147,7 +147,7 @@ namespace BUILD.modules
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel2.Controls.Add(this.label_message);
             this.panel2.Controls.Add(this.button_send_money);
             this.panel2.Controls.Add(this.textBox_cccv);
@@ -197,7 +197,7 @@ namespace BUILD.modules
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Location = new System.Drawing.Point(417, 64);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(221, 51);

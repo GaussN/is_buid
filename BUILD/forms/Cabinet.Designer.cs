@@ -45,6 +45,7 @@ namespace BUILD
             this.label_surname = new System.Windows.Forms.Label();
             this.label_name = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.bEx = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkBox_show_password
@@ -59,9 +60,10 @@ namespace BUILD
             // 
             // button_register
             // 
-            this.button_register.Location = new System.Drawing.Point(12, 346);
+            this.button_register.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button_register.Location = new System.Drawing.Point(159, 346);
             this.button_register.Name = "button_register";
-            this.button_register.Size = new System.Drawing.Size(277, 27);
+            this.button_register.Size = new System.Drawing.Size(130, 27);
             this.button_register.TabIndex = 22;
             this.button_register.Text = "Ок";
             this.button_register.UseVisualStyleBackColor = true;
@@ -172,11 +174,25 @@ namespace BUILD
             this.label1.Size = new System.Drawing.Size(277, 24);
             this.label1.TabIndex = 24;
             // 
+            // bEx
+            // 
+            this.bEx.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bEx.Location = new System.Drawing.Point(23, 346);
+            this.bEx.Name = "bEx";
+            this.bEx.Size = new System.Drawing.Size(130, 27);
+            this.bEx.TabIndex = 25;
+            this.bEx.Text = "Отмена";
+            this.bEx.UseVisualStyleBackColor = true;
+            this.bEx.Click += new System.EventHandler(this.bEx_Click);
+            // 
             // Cabinet
             // 
+            this.AcceptButton = this.button_register;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bEx;
             this.ClientSize = new System.Drawing.Size(304, 409);
+            this.Controls.Add(this.bEx);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox_show_password);
             this.Controls.Add(this.button_register);
@@ -200,6 +216,8 @@ namespace BUILD
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button bEx;
 
         private System.Windows.Forms.Label label1;
 

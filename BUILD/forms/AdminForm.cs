@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -50,13 +49,6 @@ namespace BUILD
                 this.датьДенягToolStripMenuItem.Enabled = false;
                 this.датьДенягToolStripMenuItem.Visible = false;
             }
-
-
-            // Random random = new Random();
-            // if (random.Next(0, 1000) == 453)
-            // {
-            //     MessageBox.Show("У вас СПИД");
-            // }
 
         }
 
@@ -209,7 +201,7 @@ namespace BUILD
             }
             catch (Exception excp)
             {
-                MessageBox.Show($"Ошибка в функции поиска\n{excp.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в функции поиска\n{excp.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -223,7 +215,7 @@ namespace BUILD
             }
             catch (Exception excp)
             {
-                MessageBox.Show($"Ошибка в функции редактирования\n{excp.Message}", "Бля, маслину поймал!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в функции редактирования\n{excp.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -237,7 +229,7 @@ namespace BUILD
             }
             catch (Exception excp)
             {
-                MessageBox.Show($"Ошибка в функции удаления\n{excp.Message}", "Чики брики!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в функции удаления\n{excp.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -251,7 +243,7 @@ namespace BUILD
             }
             catch (Exception excp)
             {
-                MessageBox.Show($"Ошибка в функции добавления\n{excp.Message}", "АААААААА!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в функции добавления\n{excp.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
@@ -268,7 +260,7 @@ namespace BUILD
             }
             catch
             {
-                MessageBox.Show("Во время выполнения запроса произошла ошика", "парапарапара", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Во время выполнения запроса произошла ошика", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return null;
@@ -345,7 +337,6 @@ namespace BUILD
         {
             try
             {
-                MessageBox.Show("DEBUG PRINT");
                 PrintDocument printDocument = new PrintDocument();
                 printDocument.PrintPage += (send, ex) => {
                         ex.Graphics.DrawString(MakeAmericaGreateAgain(), new Font("Arial", 14), Brushes.Black, 0, 0);
@@ -392,7 +383,7 @@ namespace BUILD
 
         private void statusBar_PanelClick(object sender, StatusBarPanelClickEventArgs e)
         {
-            MessageBox.Show("Чего ты добиваешься?");
+            MessageBox.Show("Чего вы добиваетесь?");
         }
 
         private void личныйКабинетToolStripMenuItem_Click(object sender, EventArgs e)

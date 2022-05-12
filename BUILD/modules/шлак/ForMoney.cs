@@ -61,7 +61,8 @@ namespace BUILD.modules
                 }
                 try
                 {
-
+                    //mail
+                    /*
                     MailAddress from = new MailAddress("", "BUILD/IS");
                     MailAddress to = new MailAddress("");
                     MailMessage message = new MailMessage(from, to);
@@ -70,7 +71,7 @@ namespace BUILD.modules
                     SmtpClient client = new SmtpClient("stmp.gmail.com", 587);
                     client.Credentials = new NetworkCredential("", "");
                     client.EnableSsl = true;
-                    client.Send(message);
+                    client.Send(message);*/
 
                 }
                 catch (Exception exception)

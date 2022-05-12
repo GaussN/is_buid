@@ -91,26 +91,21 @@ namespace BUILD
 
             try
             {
-                /*
-                 *
-                 *
-                 *
-                 *
-                 *
-                 *
-                 *
-                 * 
-                 */
-                string cmd = "ALTER users_data ";
+                string cmd1 = $"UPDATE autorization_data SET user_login=\'{login}\', user_password=\'{password}\' WHERE user_id={_user.id}";
+                string cmd2 = $"UPDATE users_data SET user_name=\'{name}\', user_surname=\'{surname}\' WHERE user_id={_user.id}";
                 DB db = new DB();
-                MySqlCommand command = new MySqlCommand(cmd, db.GetConnection());
-                command.ExecuteScalar();
+                MySqlCommand command1 = new MySqlCommand(cmd1, db.GetConnection());
+                MySqlCommand command2 = new MySqlCommand(cmd2, db.GetConnection());
+                command1.ExecuteScalar();
+                command2.ExecuteScalar();
+                
+                
                 
                 this.label1.Text = "Изменения сохранены";
             }
             catch (Exception exception)
             {
-                   
+                MessageBox.Show(exception.Message);
             }
         }
 
@@ -118,6 +113,11 @@ namespace BUILD
         {
             this.textBox_password_1.UseSystemPasswordChar = !checkBox_show_password.Checked;
             this.textBox_password_2.UseSystemPasswordChar = !checkBox_show_password.Checked;
+        }
+
+        private void bEx_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

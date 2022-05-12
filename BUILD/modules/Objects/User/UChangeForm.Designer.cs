@@ -166,7 +166,7 @@ namespace BUILD.modules.objects
             this.Name = "UChangeForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
