@@ -28,7 +28,6 @@ namespace BUILD.modules.objects
                 // ignored
             }
 
-            //this.comboBox1.Text = worker.IdBrigade.ToString();
             this.comboBox1.Text = this.comboBox1.Items[0].ToString();    
         }
 

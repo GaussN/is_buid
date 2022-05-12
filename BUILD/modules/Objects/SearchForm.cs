@@ -25,7 +25,7 @@ namespace BUILD.modules.Objects
             }
             catch
             {
-                MessageBox.Show("Некая ошибка");
+                MessageBox.Show("Oшибка поиска");
                 this.Close();
             }
         }

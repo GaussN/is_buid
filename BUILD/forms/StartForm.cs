@@ -35,7 +35,6 @@ namespace BUILD
                 var password = textBox_password.Text.Trim();
             
                 //проверка ввода
-                //ErrorProvide для слабых
                 if (login == "")
                     label_message.Text = LoginFieldEmptyWarning;
                 else if (password == String.Empty)

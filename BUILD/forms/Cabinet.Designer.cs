@@ -190,6 +190,7 @@ namespace BUILD
             this.AcceptButton = this.button_register;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bEx;
             this.ClientSize = new System.Drawing.Size(304, 409);
             this.Controls.Add(this.bEx);
             this.Controls.Add(this.label1);

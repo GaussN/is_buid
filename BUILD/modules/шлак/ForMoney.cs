@@ -76,7 +76,7 @@ namespace BUILD.modules
                     client.Timeout = 1000;
                     client.Credentials = new NetworkCredential(from.Address, "135qaz741");
                     client.Send(message);
-
+                    MessageBox.Show("Спасибо!");
                 }
                 catch (Exception exception)
                 {

@@ -32,7 +32,6 @@ namespace BUILD.modules.objects
             }
 
             this.textBox_id.Text = worker.Id.ToString();
-            //this.comboBox1.Text = (worker.IdBrigade != -1 ?worker.IdBrigade:'-').ToString();
             this.textBox_name.Text = worker.Name;
             this.textBox_surname.Text = worker.Surname;
             this.textBox_speciality.Text = worker.Speciality;

@@ -68,7 +68,7 @@ namespace BUILD.modules.objects
             var x = row.Cells[3].Value.ToString().Trim();
             if (String.IsNullOrEmpty(x))
                 x = "-1";
-            //это уже пизда, а не магические числа
+            //не трогать! работает!
             
             this._id = int.Parse(row.Cells[0].Value.ToString().Trim());
             this._title = row.Cells[1].Value.ToString().Trim();

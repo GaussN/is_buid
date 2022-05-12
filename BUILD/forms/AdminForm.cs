@@ -93,7 +93,6 @@ namespace BUILD
 
         private void информацияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //да, это магические табуляции, и что вы мне сделаете? 
             String info = $"ID: \t\t{_user.id}\n" +
                           $"Имя: \t\t{_user.name}\n" + 
                           $"Фамилия:\t{_user.surname}\n" + 
@@ -172,7 +171,7 @@ namespace BUILD
                     dataGridView.ClearSelection();
                     var searchString = searchForm.ReturnValueSearchString.Trim();
                     var searchColumn = searchForm.ReturnValueSearchColumn - 1;
-                    int костыль = searchColumn == -1 ? dataGridView.ColumnCount : searchColumn;
+                    int костыль;//searchColumn == -1 ? dataGridView.ColumnCount : searchColumn;
                     if (searchColumn == -1)
                     {
                         searchColumn = 0;
@@ -180,18 +179,19 @@ namespace BUILD
                     }
                     else
                         костыль = searchColumn + 1;
-
-                    //это пизда, а не поиск
+                    dataGridView.ClearSelection();
+                    dataGridView.CurrentCell = null;
                     for (int i = 0; i < dataGridView.RowCount; i++)
                     {
-                        //dataGridView.Rows[i].Selected = false;
                         for (int j = searchColumn; j < костыль; j++)
                         {
+                            dataGridView.Rows[i].Visible = false;
                             if (dataGridView.Rows[i].Cells[j].Value != null)
                             {
                                 if (dataGridView.Rows[i].Cells[j].Value.ToString().Trim().Contains(searchString))
                                 {
-                                    dataGridView.Rows[i].Selected = true;
+                                    dataGridView.Rows[i].Visible = true;
+                                    //dataGridView.Rows[i].Selected = true;
                                     break;
                                 }
                             }
