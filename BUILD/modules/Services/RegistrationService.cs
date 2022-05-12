@@ -21,6 +21,10 @@ namespace BUILD.modules
             }
             catch (Exception exception)
             {
+                //удалени записи
+                DB db = new DB();
+                string cmd = "delete from users_data where user_id={}";
+                
                 MessageBox.Show("Ошибка регистрации нового пользователя\n" + exception.Message, "Пиу", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

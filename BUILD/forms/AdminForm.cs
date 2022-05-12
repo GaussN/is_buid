@@ -191,7 +191,6 @@ namespace BUILD
                                 if (dataGridView.Rows[i].Cells[j].Value.ToString().Trim().Contains(searchString))
                                 {
                                     dataGridView.Rows[i].Visible = true;
-                                    //dataGridView.Rows[i].Selected = true;
                                     break;
                                 }
                             }

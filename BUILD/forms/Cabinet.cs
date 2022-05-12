@@ -63,31 +63,36 @@ namespace BUILD
                 string password;
                 if (String.IsNullOrEmpty(name))
                 {
-                    this.label1.Text = NameFieldEmpty;
+                    //this.label1.Text = NameFieldEmpty;
+                    MessageBox.Show(NameFieldEmpty);
                     return;
                 }
     
                 if (String.IsNullOrEmpty(surname))
                 {
-                    this.label1.Text = SurnameFieldEmpty;
+                    //this.label1.Text = SurnameFieldEmpty;
+                    MessageBox.Show(SurnameFieldEmpty);
                     return;
                 }
     
                 if (String.IsNullOrEmpty(login))
                 {
-                    this.label1.Text = LoginFieldEmpty;
+                    //this.label1.Text = LoginFieldEmpty;
+                    MessageBox.Show(LoginFieldEmpty);
                     return;
                 }
     
                 if (String.IsNullOrEmpty(this.textBox_password_1.Text.Trim()))
                 {
-                    this.label1.Text = PasswordFieldEmpty;
+                    //this.label1.Text = PasswordFieldEmpty;
+                    MessageBox.Show(PasswordFieldEmpty);
                     return;
                 }
     
                 if (this.textBox_password_1.Text.Trim() != this.textBox_password_2.Text.Trim())
                 {
-                    this.label1.Text = PasswordDontMatch;
+                    //this.label1.Text = PasswordDontMatch;
+                    MessageBox.Show(PasswordDontMatch);
                     return;
                 }
                 
