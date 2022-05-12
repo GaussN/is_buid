@@ -98,9 +98,10 @@ namespace BUILD
                 MySqlCommand command2 = new MySqlCommand(cmd2, db.GetConnection());
                 command1.ExecuteScalar();
                 command2.ExecuteScalar();
-                
-                
-                
+
+                _user.name = name;
+                _user.surname = surname;
+
                 this.label1.Text = "Изменения сохранены";
             }
             catch (Exception exception)
@@ -111,8 +112,9 @@ namespace BUILD
 
         private void checkBox_show_password_CheckedChanged(object sender, EventArgs e)
         {
-            this.textBox_password_1.UseSystemPasswordChar = !checkBox_show_password.Checked;
-            this.textBox_password_2.UseSystemPasswordChar = !checkBox_show_password.Checked;
+            this.textBox_password_2.UseSystemPasswordChar = 
+                this.textBox_password_1.UseSystemPasswordChar = 
+                    !checkBox_show_password.Checked;
         }
 
         private void bEx_Click(object sender, EventArgs e)

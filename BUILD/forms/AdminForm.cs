@@ -388,7 +388,8 @@ namespace BUILD
 
         private void личныйКабинетToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new Cabinet(this._user)).ShowDialog();
+            var cab = new Cabinet(this._user);
+            cab.ShowDialog();
         }
     }
 }
