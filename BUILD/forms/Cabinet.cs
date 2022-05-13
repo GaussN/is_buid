@@ -63,43 +63,53 @@ namespace BUILD
                 string password;
                 if (String.IsNullOrEmpty(name))
                 {
-                    //this.label1.Text = NameFieldEmpty;
                     MessageBox.Show(NameFieldEmpty);
                     return;
                 }
     
                 if (String.IsNullOrEmpty(surname))
                 {
-                    //this.label1.Text = SurnameFieldEmpty;
                     MessageBox.Show(SurnameFieldEmpty);
                     return;
                 }
     
                 if (String.IsNullOrEmpty(login))
                 {
-                    //this.label1.Text = LoginFieldEmpty;
                     MessageBox.Show(LoginFieldEmpty);
                     return;
                 }
     
                 if (String.IsNullOrEmpty(this.textBox_password_1.Text.Trim()))
                 {
-                    //this.label1.Text = PasswordFieldEmpty;
                     MessageBox.Show(PasswordFieldEmpty);
                     return;
                 }
     
                 if (this.textBox_password_1.Text.Trim() != this.textBox_password_2.Text.Trim())
                 {
-                    //this.label1.Text = PasswordDontMatch;
                     MessageBox.Show(PasswordDontMatch);
                     return;
                 }
-                
+                //проверка такого логина
+                DB db = new DB();
+                if (this._login != login)
+                {
+                    string checkLogin =
+                        $"SELECT count(user_login) FROM autorization_data WHERE user_login=\'{login}\';";
+                    MySqlCommand checkLoginQuery = new MySqlCommand(checkLogin, db.GetConnection());
+                    var re = checkLoginQuery.ExecuteReader();
+                    re.Read();
+                    if (re[0].ToString() != "0")
+                    {
+                        throw new RegistrationService.LoginAlreadyExists();
+                    }
+                    re.Close();
+
+                }
                 password = this.textBox_password_1.Text.Trim();
                 string cmd1 = $"UPDATE autorization_data SET user_login=\'{login}\', user_password=\'{password}\' WHERE user_id={_form._user.id}";
                 string cmd2 = $"UPDATE users_data SET user_name=\'{name}\', user_surname=\'{surname}\' WHERE user_id={_form._user.id}";
-                DB db = new DB();
+                
                 MySqlCommand command1 = new MySqlCommand(cmd1, db.GetConnection());
                 MySqlCommand command2 = new MySqlCommand(cmd2, db.GetConnection());
                 command1.ExecuteScalar();
@@ -127,7 +137,12 @@ namespace BUILD
 
         private void bEx_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            this.Close();
+        }
+
+        private void Cabinet_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this._form.Enabled = true;
         }
     }
 }

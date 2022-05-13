@@ -157,7 +157,7 @@ namespace BUILD
         #endregion
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("Хули тыкаешь?");
+            MessageBox.Show("Что такое?");
         }
 
         #region [функции кнопок боковой панели]
@@ -325,7 +325,7 @@ namespace BUILD
                     string fileName = fileDialog.FileName;
                     using (StreamWriter writer = new StreamWriter(fileName))
                         writer.Write(MakeAmericaGreateAgain());
-                    }
+                }
             }
             catch (Exception exception)
             {
@@ -388,8 +388,9 @@ namespace BUILD
 
         private void личныйКабинетToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Enabled = false;
             var cab = new Cabinet(this);
-            cab.ShowDialog();
+            cab.Show();
         }
     }
 }

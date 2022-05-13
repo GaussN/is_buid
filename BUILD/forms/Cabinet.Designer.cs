@@ -213,6 +213,7 @@ namespace BUILD
             this.Name = "Cabinet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Личный кабинет";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Cabinet_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

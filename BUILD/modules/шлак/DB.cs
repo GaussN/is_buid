@@ -20,7 +20,7 @@ namespace BUILD.modules
             catch (Exception exception)
             {
                 MessageBox.Show($"Ошибка в подключения БД", "Приехали", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                MessageBox.Show(exception.Message);
+                //MessageBox.Show(exception.Message);
                 Application.Exit();
             }
         }
