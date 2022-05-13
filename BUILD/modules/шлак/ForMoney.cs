@@ -80,7 +80,8 @@ namespace BUILD.modules
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message);
+                    //MessageBox.Show(exception.Message);
+                    MessageBox.Show("Ошибка при отправке на почту");
                 }
 
                 this.Close();
@@ -88,7 +89,8 @@ namespace BUILD.modules
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                //MessageBox.Show(exception.Message);
+                MessageBox.Show("Ошибка при считывании данных");
             }
 
         }

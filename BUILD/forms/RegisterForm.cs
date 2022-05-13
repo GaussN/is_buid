@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BUILD.modules;
+using MySqlConnector;
 
 namespace BUILD
 {
@@ -28,43 +29,54 @@ namespace BUILD
         {
             try
             {
-                
+
                 string name, surname, login, password;
                 if ((name = textBox_name.Text.Trim()) == String.Empty)
                 {
                     label_message.Text = NameFieldEmpty;
                     return;
                 }
+
                 if ((surname = textBox_surname.Text.Trim()) == String.Empty)
                 {
                     label_message.Text = SurnameFieldEmpty;
                     return;
                 }
+
                 if ((login = textBox_login.Text.Trim()) == String.Empty)
                 {
                     label_message.Text = LoginFieldEmpty;
                     return;
                 }
+
                 if ((password = textBox_password_1.Text.Trim()) == String.Empty)
                 {
                     label_message.Text = PasswordFieldEmpty;
                     return;
                 }
+
                 if (password != textBox_password_2.Text.Trim())
                 {
                     label_message.Text = PasswordDontMatch;
                     return;
                 }
-                User user = new User() { name=name, surname = surname, rights = false};
+
+                User user = new User() {name = name, surname = surname, rights = false};
                 RegistrationService.RegisterUser(user, login, password);
 
+                MessageBox.Show($"Регистрация прошла успешно");
+            }
+            catch (RegistrationService.LoginAlreadyExists)
+            {
+                return;
             }
             catch (Exception exception)
             { 
-                MessageBox.Show($"Ошибка регистрации\n{exception.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка регистрации\n{exception.Message}", "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show($"Регистрация прошла успешно");
+
             this.Close();
         }
     }

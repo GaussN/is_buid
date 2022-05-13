@@ -113,7 +113,7 @@ namespace BUILD
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("Ошибка при изменении данных\n" + exception.Message);
             }
             
         }

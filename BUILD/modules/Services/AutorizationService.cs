@@ -28,7 +28,7 @@ namespace BUILD.modules
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Ошибка в функции авторизации\n{exception.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в функции авторизации", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return user;
         }

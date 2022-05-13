@@ -58,7 +58,7 @@ namespace BUILD
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Ошибка в авторизации\n{exception.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в авторизации\n{exception.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

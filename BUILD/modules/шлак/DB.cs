@@ -32,7 +32,7 @@ namespace BUILD.modules
         }
         public void Close()
         {
-            //_connection.Close();
+            _connection.Close();
         }
         ~DB()=>Close();   
         
