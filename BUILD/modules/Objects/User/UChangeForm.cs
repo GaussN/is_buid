@@ -21,7 +21,7 @@ namespace BUILD.modules.objects
         private string buildRequest(User user)
         {
             return
-                $"UPDATE users_data SET user_name=\'{user.Name}\', user_surname=\'{user.Surname}\', user_rights={ (user.Right ? 1 : 0) } where user_id={user.Id}";
+                $"UPDATE users_data SET user_name=\'{user.Name}\', user_surname=\'{user.Surname}\', user_rights={(user.Right?"1":"0")} where user_id={user.Id}";
         }
 
         private void UpdateEntry(User user)

@@ -63,18 +63,25 @@ namespace BUILD.modules.objects
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Ошибка в функции поиска\n{e.Message}", "Люди!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка MySql\n{e.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
 
         public void Change(DataGridViewRow row)
         {
-            this._id = int.Parse(row.Cells[0].Value.ToString().Trim());
-            this.Name = row.Cells[1].Value.ToString().Trim();
-            this.Surname = row.Cells[2].Value.ToString().Trim();
-            this.Right = bool.Parse(row.Cells[3].Value.ToString().Trim());
-            (new UChangeForm(this)).ShowDialog();
+            try
+            {
+                this._id = int.Parse(row.Cells[0].Value.ToString().Trim());
+                this.Name = row.Cells[1].Value.ToString().Trim();
+                this.Surname = row.Cells[2].Value.ToString().Trim();
+                this.Right = row.Cells[3].Value.ToString().Trim() != "0";
+                (new UChangeForm(this)).ShowDialog();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public void Insert()
