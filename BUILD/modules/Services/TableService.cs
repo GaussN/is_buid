@@ -29,7 +29,7 @@ namespace BUILD.modules
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Ошибка в сервисах заполнения таблиц\n{exception.Message}", "Что ты уже сломал?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в сервисах заполнения таблиц\n{exception.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
