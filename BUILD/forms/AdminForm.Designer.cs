@@ -65,6 +65,7 @@ namespace BUILD
             this.button_add = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
             this.button_change = new System.Windows.Forms.Button();
+            this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -76,7 +77,7 @@ namespace BUILD
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.действияToolStripMenuItem, this.пользовательToolStripMenuItem, this.таблицыToolStripMenuItem, this.оПрограммеToolStripMenuItem});
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.действияToolStripMenuItem, this.пользовательToolStripMenuItem, this.таблицыToolStripMenuItem, this.оПрограммеToolStripMenuItem, this.hELPToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -367,6 +368,13 @@ namespace BUILD
             this.button_change.UseVisualStyleBackColor = true;
             this.button_change.Click += new System.EventHandler(this.button_change_Click);
             // 
+            // hELPToolStripMenuItem
+            // 
+            this.hELPToolStripMenuItem.Name = "hELPToolStripMenuItem";
+            this.hELPToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.hELPToolStripMenuItem.Text = "HELP";
+            this.hELPToolStripMenuItem.Click += new System.EventHandler(this.hELPToolStripMenuItem_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,6 +390,7 @@ namespace BUILD
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "СТРОЙ! Администратор";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
+            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
@@ -393,6 +402,8 @@ namespace BUILD
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem hELPToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem личныйКабинетToolStripMenuItem;
 

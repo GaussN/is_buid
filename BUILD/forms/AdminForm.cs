@@ -19,6 +19,7 @@ namespace BUILD
 
         public AdminForm(modules.User user, Form form)
         {
+            
             InitializeComponent();
             
             dataGridView.AllowUserToAddRows = false;
@@ -391,6 +392,16 @@ namespace BUILD
             this.Enabled = false;
             var cab = new Cabinet(this);
             cab.Show();
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Здарова!", "Прелоадер", MessageBoxButtons.OK);
+        }
+
+        private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Данное программное средство предназначено для упрощения ведения учета строительных фирм. Предусмотрена работа админа и клиента.","Help");
         }
     }
 }

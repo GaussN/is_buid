@@ -67,5 +67,10 @@ namespace BUILD
             var regForm = new RegisterForm();
             regForm.ShowDialog();
         }
+
+        private void StartForm_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Здарова!", "Прелоадер", MessageBoxButtons.OK);
+        }
     }
 }
