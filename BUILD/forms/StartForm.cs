@@ -70,7 +70,7 @@ namespace BUILD
 
         private void StartForm_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Здарова!", "Прелоадер", MessageBoxButtons.OK);
+            
         }
     }
 }

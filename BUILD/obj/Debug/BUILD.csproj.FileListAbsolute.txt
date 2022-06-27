@@ -38,3 +38,4 @@ D:\Code\LP\C#\BUILD\BUILD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Code\LP\C#\BUILD\BUILD\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.csproj.CopyComplete
 D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.Cabinet.resources
+D:\Code\LP\C#\BUILD\BUILD\obj\Debug\BUILD.csproj.SuggestedBindingRedirects.cache

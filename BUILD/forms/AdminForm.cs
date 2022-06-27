@@ -396,7 +396,7 @@ namespace BUILD
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("Здарова!", "Прелоадер", MessageBoxButtons.OK);
+            //pass
         }
 
         private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
